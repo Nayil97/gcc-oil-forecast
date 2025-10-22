@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 # Add src to sys.path for test discovery
 root_dir = Path(__file__).resolve().parents[1]
@@ -15,6 +16,15 @@ from data import loaders  # type: ignore
 from config import RAW_DATA_DIR  # type: ignore
 
 
+# Skip test if large data file not available (e.g., in CI)
+world_energy_file = Path(RAW_DATA_DIR) / "world_primary_csv.zip"
+skip_world_energy = pytest.mark.skipif(
+    not world_energy_file.exists(),
+    reason="Large world energy data file not available in CI"
+)
+
+
+@skip_world_energy
 def test_load_world_primary_energy() -> None:
     df = loaders.load_world_primary_energy(RAW_DATA_DIR)
     assert isinstance(df, pd.DataFrame)
@@ -37,6 +47,7 @@ def test_load_saudi_crude() -> None:
     assert has_date
 
 
+@skip_world_energy
 def test_world_energy_has_required_columns() -> None:
     """Test that world energy data has expected structure."""
     df = loaders.load_world_primary_energy(RAW_DATA_DIR)

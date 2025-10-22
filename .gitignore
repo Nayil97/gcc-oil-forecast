@@ -12,9 +12,13 @@ __pycache__/
 .env.*
 
 # Data (raw and intermediate) – keep large files out of version control
-data/raw/
+data/raw/*.zip
+data/raw/*.xls
 data/interim/
 data/processed/
+
+# Allow small CSV files needed for testing
+!data/raw/*.csv
 
 # Jupyter notebook checkpoints
 notebooks/**/.ipynb_checkpoints/
