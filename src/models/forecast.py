@@ -14,7 +14,6 @@ from typing import Dict, List, Optional
 
 import mlflow
 import pandas as pd
-import numpy as np
 
 from ..config import (
     MLFLOW_TRACKING_URI,

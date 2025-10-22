@@ -6,7 +6,7 @@ import logging
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,11 +18,10 @@ if str(root_dir / "src") not in sys.path:
 if str(root_dir / "api") not in sys.path:
     sys.path.insert(0, str(root_dir / "api"))
 
-from schemas import PredictRequest, PredictResponse, WhatIfRequest, WhatIfResponse, ModelInfo
-from config import PORT_API
-from logging_conf import setup_logging
-from models.forecast import Forecaster
-from models.registry import get_model_metadata
+from schemas import PredictRequest, PredictResponse, WhatIfRequest, WhatIfResponse, ModelInfo  # noqa: E402
+from logging_conf import setup_logging  # noqa: E402
+from models.forecast import Forecaster  # noqa: E402
+from models.registry import get_model_metadata  # noqa: E402
 
 
 setup_logging()
@@ -54,7 +53,7 @@ async def predict(req: PredictRequest) -> PredictResponse:
         if not dates:
             raise HTTPException(status_code=400, detail="At least one date must be provided.")
         # Use horizon based on first date difference; default to 1 month
-        first_date = datetime.fromisoformat(dates[0])
+        _ = datetime.fromisoformat(dates[0])  # Validate date format
         # Compute month difference from last known date; fallback to 1 if negative
         horizon = 1
         forecaster = Forecaster(horizon)

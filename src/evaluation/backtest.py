@@ -6,7 +6,7 @@ backtesting, capturing how errors evolve across different forecast horizons.
 
 from __future__ import annotations
 
-from typing import Callable, Dict, List, Tuple
+from typing import Callable, Dict, List
 
 import numpy as np
 import pandas as pd
