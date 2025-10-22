@@ -1,4 +1,6 @@
-# GCC Oil Forecast – Production-Ready Data Science Project
+# 🛢️ GCC Oil Forecast – Production-Ready Data Science Project
+
+<div align="center">
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -6,6 +8,16 @@
 [![MLflow](https://img.shields.io/badge/MLflow-tracking-0194E2)](https://mlflow.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688)](https://fastapi.tiangolo.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.25%2B-FF4B4B)](https://streamlit.io/)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)](https://www.docker.com/)
+[![CI](https://github.com/Nayil97/gcc-oil-forecast/workflows/CI/badge.svg)](https://github.com/Nayil97/gcc-oil-forecast/actions)
+
+**End-to-end ML solution for forecasting crude oil production in the Gulf Cooperation Council region**
+
+[Features](#key-features) • [Quick Start](#getting-started) • [Documentation](#notebooks) • [Results](#results-and-key-findings) • [Demo](#screenshots)
+
+</div>
+
+---
 
 ## Overview
 
@@ -227,6 +239,46 @@ While this project demonstrates production-ready ML engineering, please note the
 - Forecasts should be used as decision support, not sole basis for financial/policy decisions
 - Model explanations (SHAP) should be reviewed by domain experts
 - Energy transition dynamics are rapidly evolving; model retraining recommended quarterly
+
+## Screenshots
+
+### 📊 Interactive Streamlit Dashboard
+
+The dashboard provides an intuitive interface for exploring data, models, and forecasts:
+
+**Home Page - Forecast Preview**
+> Quick 6-month production forecast with key metrics
+
+**EDA Page - Data Exploration**
+> Interactive visualizations showing historical trends, correlations, and patterns
+
+**Features Page - Engineering Overview**
+> Visual representation of 73 engineered features including lags and rolling statistics
+
+**Modeling Page - Model Comparison**
+> Performance metrics across 4 models (LightGBM, XGBoost, Random Forest, Linear) with MLflow integration
+
+**Explainability Page - SHAP Analysis**
+> Feature importance rankings showing which factors drive production forecasts
+
+**Forecasts Dashboard - Scenario Planning**
+> Interactive scenario testing with custom Brent price, renewables, and demand inputs
+
+### 🚀 API Documentation
+
+FastAPI provides automatic interactive API documentation at `/docs`:
+- Real-time prediction endpoint with confidence intervals
+- Health check monitoring
+- Request/response validation with Pydantic schemas
+
+### 📈 MLflow Tracking UI
+
+Experiment tracking interface showing:
+- Model performance across different hyperparameters
+- Metric comparison charts (RMSE, MAE, R²)
+- Model versioning and artifact storage
+
+---
 
 ## Future Enhancements
 
